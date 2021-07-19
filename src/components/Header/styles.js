@@ -30,7 +30,7 @@ export const InputSearchContainer = styled.div`
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
 
     &::placeholder {
-      color: #bcbcbc;
+      color: ${({ theme }) => theme.colors.gray[200]};
     }
   }
 `;
