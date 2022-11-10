@@ -4,7 +4,7 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
 
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
 
@@ -13,7 +13,7 @@ export const Overlay = styled.div`
   align-items: center;
 
   background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blue(5px);
+  backdrop-filter: blur(5px);
 `;
 
 export const Container = styled.div`

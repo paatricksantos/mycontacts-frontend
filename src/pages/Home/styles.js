@@ -31,7 +31,10 @@ export const Header = styled.header`
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${({ justifyContent }) => justifyContent};
+
+  border-bottom: 2px solid ${({ theme }) => theme.colors.gray[100]};
+  padding-bottom: 16px;
 
   strong {
     font-size: 24px;
@@ -59,23 +62,29 @@ export const Header = styled.header`
   }
 `;
 
-export const ListContainer = styled.div`
+export const ListHeader = styled.header`
   margin-top: 24px;
 
-  header {
-    margin-bottom: 8px;
-    button {
-      background: transparent;
-      border: 0;
+  margin-bottom: 8px;
 
-      display: flex;
-      align-items: center;
+  button {
+    background: transparent;
+    border: 0;
 
-      span {
-        margin-right: 8px;
-        font-weight: bold;
-        color: ${({ theme }) => theme.colors.primary.main};
-      }
+    display: flex;
+    align-items: center;
+
+    img {
+      transition: transform 0.2s ease-in;
+
+      transform: ${({ orderBy }) =>
+        orderBy === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)'};
+    }
+
+    span {
+      margin-right: 8px;
+      font-weight: bold;
+      color: ${({ theme }) => theme.colors.primary.main};
     }
   }
 `;
@@ -130,6 +139,57 @@ export const Card = styled.div`
       background: transparent;
       border: none;
       margin-left: 8px;
+    }
+  }
+`;
+
+export const ErrorContainer = styled.div`
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  .details {
+    strong {
+      font-size: 22px;
+      color: ${({ theme }) => theme.colors.danger.main};
+      display: block;
+      margin-bottom: 8px;
+    }
+  }
+`;
+
+export const EmptyListContainer = styled.div`
+  margin-top: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  p {
+    color: ${({ theme }) => theme.colors.gray[200]};
+    text-align: center;
+
+    strong {
+      color: ${({ theme }) => theme.colors.primary.main};
+    }
+  }
+`;
+
+export const SearchNotFoundContainer = styled.div`
+  margin-top: 16px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+
+  span {
+    color: ${({ theme }) => theme.colors.gray[200]};
+    word-break: break-word;
+
+    strong {
+      color: ${({ theme }) => theme.colors.primary.main};
     }
   }
 `;
